@@ -10,5 +10,32 @@
 </head>
 <body>
     <h1>你好！</h1>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body id="bing-wallpaper">
+    <script>
+        async function fetchBingWallpaper() {
+            // 这里仅作示例，实际需要替换为有效API地址并处理响应数据
+            const response = await fetch('https://api.paugram.com/bing');
+            const data = await response.json();
+            const wallpaperUrl = data.backgroundImage; // 假设这是壁纸图片URL
+
+            document.body.style.backgroundImage = `url(${wallpaperUrl})`;
+        }
+
+        window.onload = () => {
+            fetchBingWallpaper();
+        };
+    </script>
 </body>
 </html>
